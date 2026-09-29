@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — OfflineAICalculator</title>
+<meta name="description" content="Help and answers for OfflineAICalculator.">
+<style>
+  :root { --bg:#1E1511; --surface:#2E221B; --line:#4A3A2E; --ink:#F2E8DA; --ink-2:#D6C6B2; --ink-3:#A8927C;
+          --gold:linear-gradient(135deg,#fff0b8 0%,#d4af37 30%,#f5dc86 55%,#b08a26 80%,#e3c35a 100%);
+          --backdrop:linear-gradient(135deg,#2A1E18 0%,#1B130F 40%,#231914 65%,#16100C 100%);
+          --card:linear-gradient(135deg,#3A2B22 0%,#2E221B 50%,#271C16 100%); }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); background-image:var(--backdrop); background-attachment:fixed; color:var(--ink);
+         font:16px/1.7 -apple-system,BlinkMacSystemFont,"SF Pro Text",Segoe UI,Roboto,sans-serif;
+         -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:760px; margin:0 auto; padding:64px 20px 96px; }
+  .mark { width:64px; height:64px; display:block; margin:0 0 22px; border-radius:50%; }
+  h1 { font-size:clamp(30px,6vw,46px); margin:0 0 8px; letter-spacing:-0.02em; font-weight:700; line-height:1.15;
+       background:var(--gold); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .lede { font-size:19px; color:var(--ink-2); margin:0 0 36px; }
+  .updated { color:var(--ink-3); font-size:14px; margin:0 0 36px; }
+  h2 { font-size:20px; margin:44px 0 12px; font-weight:600; color:#e6c65c; }
+  p, li { color:var(--ink-2); }
+  strong { color:var(--ink); font-weight:600; }
+  .panel { background:var(--card); border:1px solid var(--line); border-radius:20px; padding:22px 24px; margin:24px 0; }
+  .panel p:first-child, .panel h3:first-child { margin-top:0; } .panel p:last-child { margin-bottom:0; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin:24px 0; }
+  .grid .panel { margin:0; }
+  h3 { margin:0 0 6px; font-size:17px; color:#e6c65c; }
+  ul { padding-left:20px; }
+  table { width:100%; border-collapse:collapse; margin:16px 0; font-size:15px; }
+  th, td { text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); color:var(--ink-2); vertical-align:top; }
+  th { color:var(--ink); font-weight:600; }
+  a { color:#e6c65c; }
+  pre { white-space:pre-wrap; font-size:12px; color:var(--ink-3); background:rgba(0,0,0,.18); padding:16px; border-radius:12px; overflow-x:auto; }
+  footer { border-top:1px solid var(--line); margin-top:56px; padding-top:24px; color:var(--ink-3); font-size:14px; }
+
+  .tag { display:inline-block; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); margin:0 0 6px; }
+  .strip { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 36px; padding:0; list-style:none; }
+  .strip li { margin:0; padding:6px 12px; border:1px solid var(--line); border-radius:999px; font-size:14px; color:var(--ink-2); background:rgba(0,0,0,.12); }
+  .example { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:14px; color:var(--ink); }
+  code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.92em; color:var(--ink); }
+  .toc { color:var(--ink-3); font-size:14px; margin:0 0 30px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
+  <defs>
+    <clipPath id="disc"><circle cx="50" cy="50" r="50"/></clipPath>
+    <linearGradient id="cream" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FAF3E6"/><stop offset="1" stop-color="#D9C6A6"/></linearGradient>
+    <linearGradient id="espresso" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5A4030"/><stop offset="1" stop-color="#1B120E"/></linearGradient>
+    <linearGradient id="goldleaf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff0b8"/><stop offset=".35" stop-color="#d4af37"/>
+      <stop offset=".6" stop-color="#f6de8a"/><stop offset="1" stop-color="#a9821f"/></linearGradient>
+  </defs>
+  <g clip-path="url(#disc)">
+    <rect x="0" y="0" width="50" height="100" fill="url(#cream)"/>
+    <rect x="50" y="0" width="50" height="100" fill="url(#espresso)"/>
+  </g>
+  <rect x="28" y="22" width="38" height="58" rx="6" fill="none" stroke="url(#goldleaf)" stroke-width="4.5"/>
+  <rect x="34" y="29" width="26" height="9" rx="2" fill="url(#goldleaf)"/>
+  <g stroke="url(#goldleaf)" stroke-width="3.5" stroke-linecap="round">
+    <line x1="34.5" y1="51" x2="42.5" y2="51"/><line x1="38.5" y1="47" x2="38.5" y2="55"/>
+    <line x1="51.5" y1="51" x2="59.5" y2="51"/>
+    <line x1="35.5" y1="64" x2="41.5" y2="70"/><line x1="41.5" y1="64" x2="35.5" y2="70"/>
+    <line x1="51.5" y1="64.5" x2="59.5" y2="64.5"/><line x1="51.5" y1="69.5" x2="59.5" y2="69.5"/>
+  </g>
+  <path d="M78 9 Q80.2 14.8 86 17 Q80.2 19.2 78 25 Q75.8 19.2 70 17 Q75.8 14.8 78 9 Z" fill="url(#goldleaf)"/>
+</svg>
+
+<h1>Support</h1>
+<p class="lede">Answers to the questions people ask most. If yours isn’t here, email the address at the bottom of this page.</p>
+<p class="toc">The calculator · Ask · Tools · History · iPad and smaller iPhones · The app · Contact</p>
+
+<h2>The calculator</h2>
+<div class="panel"><h3>How do percentages work?</h3><p>Like a desk calculator: <code>200 + 10%</code> adds ten percent of 200, giving 220, and <code>80 − 25%</code> gives 60. Anywhere else a percentage is a fraction: <code>50 × 10%</code> is 5. The working shows which reading was used (“10% of 200 = 20”).</p></div>
+<div class="panel"><h3>Why does 0.1 + 0.2 show 0.3?</h3><p>Because it is 0.3. The app removes the tiny rounding noise many calculators show. Where an answer is an exact fraction it is shown too — <code>1/3 + 1/6</code> also shows ½. You can turn fractions off in Settings.</p></div>
+<div class="panel"><h3>How do I see the working?</h3><p>After you press =, tap <strong>Steps</strong> to see every operation, one line at a time. Tap <strong>Explain</strong> to have the on-device AI describe the working in plain words as well — the numbers always come from the calculator.</p></div>
+<div class="panel"><h3>Where are the scientific keys?</h3><p>Tap the grid button at the top of the calculator. You get trig and inverse trig (tap 2nd), hyperbolic functions, ln, log and log₂, powers and roots, factorial, nCr and nPr, abs, mod, π, e and EE. Switch between degrees and radians with the DEG / RAD button, or in Settings.</p></div>
+<div class="panel"><h3>Memory, Ans, undo and redo</h3><p>M+ and M− add the current answer to memory or take it away, MR recalls it and MC clears it. Ans is the last answer. The undo and redo arrows in the display step back and forward through what you typed; press and hold ⌫ to clear the line.</p></div>
+<div class="panel"><h3>It says “too large to show”</h3><p>The answer is beyond what any calculator can hold (about 1.8 × 10³⁰⁸) — for example 200!. Answers up to that size are shown in scientific notation, like 170! = 7.2574156153E306.</p></div>
+<div class="panel"><h3>How do I change how numbers look?</h3><p>Settings → Number format: Automatic (up to 12 significant figures), Fixed decimals (0–10 places) or Scientific, with or without thousands separators. Money answers show two decimal places in Automatic.</p></div>
+
+<h2>Ask</h2>
+<div class="panel"><h3>What can I type?</h3><p>Plain English. For example: “30 is what percent of 120”, “18% tip on $64 split 3 ways”, “25% off 80”, “100 plus 8% tax”, “compound interest on 1000 at 5% for 10 years”, “mortgage payment on 200000 at 6% for 30 years”, “convert 5 km to miles”, “how many days between 2026-01-01 and 2026-12-25”, “solve x^2 − 5x + 6 = 0”, “x + y = 10, x − y = 2”, “average of 3, 5, 10”, “is 97 prime”, “255 in hex”, or set a variable with “rate = 0.07”. These are answered by the calculator itself, with no AI.</p></div>
+<div class="panel"><h3>What does the AI do?</h3><p>For word problems the calculator can’t read by itself, the on-device AI rewrites the words as a sum. It never does the arithmetic. The calculator checks every number in that sum came from your question, compares more than one reading, then works it out. “Understood as …” above the answer shows exactly what was calculated.</p></div>
+<div class="panel"><h3>I see a warning under an answer</h3><p>Something was uncertain — the readings didn’t agree, or a number appeared that wasn’t in your question. Check the “Understood as …” line; if it isn’t what you meant, rephrase the question or type the sum on the keypad.</p></div>
+<div class="panel"><h3>The AI explained something wrongly</h3><p>It is a small model and it can be wrong. Explanations are marked as AI explanations, and any sum written in them — like “2 + 2 = 5” — is checked and corrected on screen. Answers to calculations always come from the calculator, never from the model.</p></div>
+<div class="panel"><h3>How do I put the keyboard away?</h3><p>Tap anywhere in the conversation or on the Ask title, or drag the conversation down. Tapping the question box keeps it open.</p></div>
+<div class="panel"><h3>Why is the first AI answer slow?</h3><p>The model loads the first time the AI is needed after the app opens — a few seconds, longer on older devices. After that, answers start straight away. Plain-English questions the calculator can read itself never wait for the model.</p></div>
+<div class="panel"><h3>The AI couldn’t be loaded</h3><p>Close other apps you aren’t using and try again — the model needs a fair amount of free memory. The calculator, the plain-English answers and every tool keep working without it. You can also switch the AI off in Settings.</p></div>
+
+<h2>Tools</h2>
+<div class="panel"><h3>What tools are there?</h3><p>Unit converter (13 categories, 90+ units), percentages, tip &amp; split, discount &amp; tax &amp; margin, loan &amp; mortgage with a yearly schedule, savings &amp; growth (compound interest, monthly deposits, growth rate), statistics with a histogram, equation solver (one equation or simultaneous), graph plotter, programmer (decimal, hex, binary, octal and bitwise), dates, fractions, primes &amp; factors, best buy, and memory &amp; variables.</p></div>
+<div class="panel"><h3>Can I type a sum into a field?</h3><p>Yes. Every number field accepts arithmetic — type <code>2*32</code> and it uses 64. You can use your own variables too, like <code>rate*100</code>.</p></div>
+<div class="panel"><h3>How does the graph plotter work?</h3><p>Enter f(x), and optionally g(x). The plotter marks where each curve crosses zero and where the two curves meet; drag across the graph to trace values. Choose radians or degrees for trigonometry.</p></div>
+<div class="panel"><h3>Can it convert currencies?</h3><p>No. Exchange rates change constantly and the app never goes online, so it has no live rates. Every other converter works fully offline.</p></div>
+
+<h2>History</h2>
+<div class="panel"><h3>What is saved?</h3><p>Every finished sum, every Ask answer, and any tool result you save — grouped by day. Search it, filter by pinned, keypad, Ask or tools, pin and label entries, and tap one to open it, reuse it in the calculator, copy or share it.</p></div>
+<div class="panel"><h3>I deleted something by mistake</h3><p>Tap <strong>Undo</strong> in the bar that appears right after a delete, or use the undo and redo arrows at the top of History. They cover every deletion, clear, pin and label change until the app is closed.</p></div>
+<div class="panel"><h3>How do I delete several at once?</h3><p>History → ⋯ → Select, tick the entries, then Delete. Swipe left on a single entry to delete it, or right to pin it. ⋯ → Clear history removes everything, or everything except pinned entries.</p></div>
+<div class="panel"><h3>How long is history kept?</h3><p>Choose in Settings: forever, 1 year, 90, 30 or 7 days. Pinned entries are always kept. You can also turn history saving off.</p></div>
+<div class="panel"><h3>How do I back it up?</h3><p>History → ⋯ → Share as text or Export CSV (spreadsheet), or Settings → Export history. Save or send the file wherever you like — the app has no sync of its own.</p></div>
+
+<h2>iPad and smaller iPhones</h2>
+<div class="panel"><h3>iPad</h3><p>The sections are in a rail down the left. In portrait the calculator shows a paper-tape of your recent sums — tap one to reuse it. In landscape, your full history sits beside the keys.</p></div>
+<div class="panel"><h3>iPhone SE and other compact iPhones</h3><p>With scientific keys on, the function keys are on two pages: swipe across them, or tap the small gold page marker, to switch.</p></div>
+
+<h2>The app</h2>
+<div class="panel"><h3>Why is it so large?</h3><p>About 780 MB installed — the AI model built into the app is about 770 MB of that. Nothing more is ever downloaded.</p></div>
+<div class="panel"><h3>How do I change the look?</h3><p>Settings → Appearance: <strong>Espresso</strong> (satin espresso brown with gold) or <strong>Cream</strong> (satin cream with gold and espresso).</p></div>
+<div class="panel"><h3>Does it cost anything or need an account?</h3><p>No. It is free, with no in-app purchases, no ads, no account, no sign-in and no subscription.</p></div>
+<div class="panel"><h3>Which devices does it run on?</h3><p>iPhone and iPad with iOS 17 or later. The AI runs on the device itself, so newer devices answer faster.</p></div>
+
+<h2>Contact</h2>
+<p>Email <a href="mailto:sivavimelrajhen@gmail.com">sivavimelrajhen@gmail.com</a> with your device model and iOS version, and the sum or question you typed. There is no account system, so there is nothing to look up — just describe what happened.</p>
+
+<p class="updated">The on-device AI model is Llama 3.2 1B Instruct, used under the Llama 3.2 Community License. Built with Llama.</p>
+
+<footer>OfflineAICalculator · Contact: <a href="mailto:sivavimelrajhen@gmail.com">sivavimelrajhen@gmail.com</a></footer>
+</div>
+</body>
+</html>
